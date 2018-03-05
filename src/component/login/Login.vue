@@ -65,6 +65,9 @@ export default {
                             localStorage.setItem('uname',res.data.message.uname);
                             // 使用了路由插件后, 就会拥有该对象 push表示路径跳转
                             this.$router.push({ name: 'admin' });
+                            //登录成功成功后，跳转到登录前要访问的地址
+                            let nexPage=this.$route.query.next||'/admin';
+                            this.$router.push({path:nexPage});
                         }
                     });
                 } else {
